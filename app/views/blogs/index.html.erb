@@ -1,17 +1,12 @@
-
 <p id="notice"><%= notice %></p>
-
 <h1>Blogs</h1>
-
-
-  <% @blogs.each do |blog| %>
+<% @blogs.each do |blog| %>
         <p><%= blog.user.name %></p>
         <p><%= blog.content %></p>
         <p><%= image_tag  blog.image.url, class:"image" %></p>
-        
-       <%= link_to 'Show', blog %>
-       <%= link_to 'Edit', edit_blog_path(blog) %>
-       <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Show', blog %>
+        <%= link_to 'Edit', edit_blog_path(blog) %>
+        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
       
     <% end %>
  
