@@ -1,16 +1,21 @@
+<% if logged_in? %>
 <p id="notice"><%= notice %></p>
 <a class="nav-link"<a href="/blogs/new">New Blog</a>
 <h1>Blogs</h1>
 <% @blogs.each do |blog| %>
         <p><%= blog.user.name %></p>
         <p><%= blog.content %></p>
+        <% if blog.image.url %>
         <p><%= image_tag  blog.image.url, class:"image" %></p>
+        <% end %>
         <%= link_to 'Show', blog %>
         <%= link_to 'Edit', edit_blog_path(blog) %>
         <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
       
     <% end %>
- 
+    <%else%>
+    <%= link_to "click here to login", new_session_path%>
+    <% end %>
 
 
 
