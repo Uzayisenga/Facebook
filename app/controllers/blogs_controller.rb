@@ -46,7 +46,6 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     def set_blog
       @blog = Blog.find(params[:id])
@@ -55,5 +54,4 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(:content, :image, :user_id)
     end
-
-end
+  end
